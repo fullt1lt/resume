@@ -1,0 +1,16 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <!-- Прозрачный фон -->
+    <rect width="1024" height="1024" fill="none" />
+
+    <!-- Внешняя рамка -->
+    <rect x="100" y="100" width="824" height="824" fill="none" stroke="white" stroke-width="50" />
+
+    <!-- Буква D -->
+    <text x="320" y="680" font-family="Arial, sans-serif" font-size="500" font-weight="bold" fill="white">D</text>
+
+    <!-- Горизонтальная линия между буквами -->
+    <rect x="500" y="540" width="220" height="50" fill="white" />
+
+    <!-- Буква T -->
+    <text x="540" y="680" font-family="Arial, sans-serif" font-size="500" font-weight="bold" fill="white">T</text>
+</svg>
