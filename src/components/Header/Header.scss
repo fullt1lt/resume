@@ -32,6 +32,7 @@ header {
         align-items: center;
         .Header_Navigation_list_item {
           margin-right: 56px;
+          position: relative;
           a {
             color: black;
             font-family: "Source Sans 3";
@@ -41,6 +42,20 @@ header {
             line-height: normal;
             letter-spacing: 0.09px;
             color: aliceblue;
+          }
+          .animation_line {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: aliceblue;
+            opacity: 0;
+            transition: width 0.5s ease-in, opacity 0.3s ease-in;
+          }
+          &:hover .animation_line {
+            width: 100%;
+            opacity: 1;
           }
         }
       }

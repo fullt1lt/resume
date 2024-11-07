@@ -42,15 +42,19 @@ export default function Header() {
           <ul className="Header_Navigation_list">
             <li className="Header_Navigation_list_item">
               <a href="#skills">{t("skills")}</a>
+              <div className="animation_line"></div>
             </li>
             <li className="Header_Navigation_list_item">
               <a href="#experience">{t("experience")}</a>
+              <div className="animation_line"></div>
             </li>
             <li className="Header_Navigation_list_item">
               <a href="#portfolio">{t("portfolio")}</a>
+              <div className="animation_line"></div>
             </li>
             <li className="Header_Navigation_list_item">
               <a href="#contacts">{t("contacts")}</a>
+              <div className="animation_line"></div>
             </li>
           </ul>
         </li>
