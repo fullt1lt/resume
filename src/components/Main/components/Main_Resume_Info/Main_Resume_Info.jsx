@@ -1,6 +1,5 @@
 import "./Main_Resume_Info.scss";
 import React, { useState } from "react";
-import StarsBackground from "./StarsBackground";
 import main_foto1 from "@assets/imag/Img_3-Photoroom.png";
 import { useTranslation } from "react-i18next";
 
@@ -21,7 +20,6 @@ export default function Main_Resume_Info() {
 
   return (
     <section className="Main_Resume_Info">
-      <StarsBackground />
       <ul className="Resume_info_list">
         <div className="line"></div>
         <li className="Resume_info_item">

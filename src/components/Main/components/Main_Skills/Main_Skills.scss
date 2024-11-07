@@ -1,0 +1,114 @@
+.Main_Skills {
+  width: 100%;
+  position: sticky;
+  background: url("@assets/imag/skills_bg_bw.jpg");
+  // background: url("@assets/imag/bg_body.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  opacity: 0;
+  transform: translateY(450px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .Main_Skills_list {
+    width: 50%;
+    height: 100%;
+    margin-top: 50px;
+    border-radius: 16px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.021);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .Main_Skills_Header {
+      font-family: "Source Sans 3";
+      font-style: normal;
+      color: aliceblue;
+      font-size: 80px;
+      line-height: 1;
+      font-weight: bold;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .Main_skills_item {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      margin-top: 20px;
+      .Skills_name {
+        font-family: "Source Sans 3";
+        font-style: normal;
+        color: aliceblue;
+        font-size: 25px;
+        line-height: 1;
+        font-weight: bold;
+        width: 200px;
+        text-align: end;
+        margin-right: 20px;
+      }
+      .progress-bar {
+        width: 60%;
+        position: relative;
+        flex: 1;
+        height: 20px;
+        background-color: transparent;
+        overflow: hidden;
+        margin: 0 10px;
+        display: flex;
+        justify-content: flex-start;
+        .progress {
+          height: 100%;
+          background-color: #00ff00;
+          border-radius: 5px;
+          transition: width 0.5s ease;
+          position: relative;
+        }
+        .Skills_percentage {
+          width: 50px;
+          font-family: "Source Sans 3";
+          font-style: normal;
+          color: aliceblue;
+          font-size: 20px;
+          line-height: 1;
+          font-weight: bold;
+          text-align: start;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}
+
+.sticky {
+  animation: slideIn 0.9s ease forwards;
+}
+
+.animation {
+  animation: appearance 2s ease-in;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(450px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    top: -50px;
+  }
+}
+
+@keyframes appearance {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: var(--target-width);
+  }
+}
+
