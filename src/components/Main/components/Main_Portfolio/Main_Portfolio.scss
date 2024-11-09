@@ -1,0 +1,11 @@
+.Main_Portfolio {
+  display: flex;
+  width: 100%;
+  background-color: #868686;
+  height: 100vh;
+  .Main_Portfolio_list {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+  }
+}

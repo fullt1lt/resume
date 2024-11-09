@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Main_Skills() {
   const skillsRef = useRef(null);
+  const { t } = useTranslation("skills");
   const [isSticky, setIsSticky] = useState(false);
 
   const skills = [
@@ -13,25 +14,52 @@ export default function Main_Skills() {
     { name: "React", percentage: 25 },
   ];
 
-  const { t } = useTranslation("skills");
-
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => setIsSticky(entry.isIntersecting),
+      ([entry]) => {
+        if (entry.isIntersecting && !isSticky) {
+          setIsSticky(true);
+        }
+      },
       { threshold: 0.4 }
     );
-    observer.observe(skillsRef.current);
-    return () => observer.disconnect();
+
+    if (skillsRef.current) {
+      observer.observe(skillsRef.current);
+    }
+
+    return () => {
+      if (skillsRef.current) {
+        observer.unobserve(skillsRef.current);
+      }
+    };
+  }, [isSticky]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <section
       className={`Main_Skills ${isSticky ? "sticky" : ""}`}
       ref={skillsRef}
-      id="skills"
     >
       <ul className="Main_Skills_list">
-        <h1 className="Main_Skills_Header">{t("skillsHeader")}</h1>
+        <h1
+          className={`Main_Skills_Header ${isSticky ? "animation_header" : ""}`}
+        >
+          {t("skillsHeader")}
+        </h1>
         {skills.map((skill, index) => (
           <li key={index} className="Main_skills_item">
             <span className="Skills_name">{skill.name}</span>

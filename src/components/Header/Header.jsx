@@ -45,11 +45,11 @@ export default function Header() {
               <div className="animation_line"></div>
             </li>
             <li className="Header_Navigation_list_item">
-              <a href="#experience">{t("experience")}</a>
+              <a href="#portfolio">{t("portfolio")}</a>
               <div className="animation_line"></div>
             </li>
             <li className="Header_Navigation_list_item">
-              <a href="#portfolio">{t("portfolio")}</a>
+              <a href="#experience">{t("experience")}</a>
               <div className="animation_line"></div>
             </li>
             <li className="Header_Navigation_list_item">
