@@ -1,11 +1,31 @@
 .Main_Portfolio {
   display: flex;
   width: 100%;
-  background-color: #868686;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
   .Main_Portfolio_list {
     display: flex;
     justify-content: center;
     width: 60%;
+    border-radius: 16px;
+    padding: 20px;
+    // background-color: rgba(255, 255, 255, 0.021);
+    // backdrop-filter: blur(8px);
+    li {
+      width: 33%;
+      max-height: 250px;
+      a {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
   }
 }

@@ -43,10 +43,6 @@ export default function Main_Skills() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
   }, []);
 
   return (
