@@ -2,21 +2,10 @@ import "./Main_Resume_Info.scss";
 import React, { useState } from "react";
 import main_foto1 from "@assets/imag/Img_3-Photoroom.png";
 import { useTranslation } from "react-i18next";
+import AnimatedText from "../Functions/AnimatedText";
 
 export default function Main_Resume_Info() {
   const { t } = useTranslation("resumeInfo");
-
-  function AnimatedText({ text, delay }) {
-    return (
-      <span className="Animation_Wrapper">
-        {text.split("").map((letter, index) => (
-          <span key={index} style={{ animationDelay: `${index * delay}s` }}>
-            {letter === " " ? "\u00A0" : letter}
-          </span>
-        ))}
-      </span>
-    );
-  }
 
   return (
     <section className="Main_Resume_Info">

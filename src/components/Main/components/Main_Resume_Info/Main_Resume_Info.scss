@@ -37,14 +37,6 @@
         opacity: 0;
         transform: translateY(50px);
         animation: fadeIn 2.5s ease-out forwards;
-        .Animation_Wrapper {
-          span {
-            opacity: 0;
-            display: inline-block;
-            transform: translateY(30px);
-            animation: fadeInLetter 0.5s forwards ease;
-          }
-        }
       }
       h3 {
         margin-top: 45px;
