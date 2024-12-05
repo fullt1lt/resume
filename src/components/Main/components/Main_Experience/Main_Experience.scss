@@ -1,0 +1,126 @@
+.Main_Experience {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  .Main_Experience_Header {
+    font-family: "Source Sans 3";
+    font-style: normal;
+    color: aliceblue;
+    font-size: 80px;
+    line-height: 1;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .Main_Experience_Container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    .Vertical_Line_Experience {
+      position: absolute;
+      width: 4px;
+      height: 0%;
+      background-color: white;
+      opacity: 0;
+      transform: translateY(-50px);
+      z-index: 1;
+    }
+    .Pointer_list {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      z-index: 2;
+      .Point {
+        border-radius: 50%;
+        background-color: white;
+        width: 10px;
+        height: 10px;
+      }
+    }
+    .Main_Experience_list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(var(--target-heigth-exp), 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      width: 50%;
+      justify-content: center;
+      align-items: start;
+      .Experience_Item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        opacity: 0;
+        font-family: "Source Sans 3";
+        font-style: normal;
+        color: aliceblue;
+        line-height: 1;
+        font-weight: bold;
+        .Experience_Item_Period {
+          margin-top: 5px;
+          font-size: 35px;
+        }
+        .Experience_Item_Name_Company {
+          margin-top: 10px;
+          font-size: 30px;
+        }
+        .Experience_Item_Position_Company {
+          margin-top: 10px;
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+
+.animation_rigth {
+  animation: fadeInPortfolioLeft 1.5s forwards ease;
+}
+
+.animation_left {
+  animation: fadeInPortfolioRight 1.5s forwards ease;
+}
+
+.animatioUpScroll {
+  animation: upScroll 3.5s ease-out forwards;
+}
+
+@keyframes fadeInPortfolioRight {
+  from {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInPortfolioLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes upScroll {
+  to {
+    height: 100%;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

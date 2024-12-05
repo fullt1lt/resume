@@ -8,6 +8,7 @@
   position: relative;
   overflow: hidden;
   align-items: center;
+  justify-content: center;
   .Main_Portfolio_Header {
     font-family: "Source Sans 3";
     font-style: normal;
@@ -25,7 +26,6 @@
     justify-content: center;
     width: 80%;
     margin-top: 20px;
-    height: 80%;
     li {
       width: 33%;
       max-height: 250px;

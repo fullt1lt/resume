@@ -1,0 +1,38 @@
+{
+  "experienceHeader": "Experience",
+  "experienceList": [
+    {
+      "id": 1,
+      "period": {
+        "start": "2019",
+        "end": "2021"
+      },
+      "company": {
+        "name": "StaleEnergo",
+        "position": "Junior Software Engineer"
+      }
+    },
+    {
+      "id": 2,
+      "period": {
+        "start": "2021",
+        "end": "2024"
+      },
+      "company": {
+        "name": "TOYOTA",
+        "position": "Logistics Operator"
+      }
+    },
+    {
+      "id": 3,
+      "period": {
+        "start": "2024",
+        "end": "..."
+      },
+      "company": {
+        "name": "NYPRO",
+        "position": "Production Operator"
+      }
+    }
+  ]
+}

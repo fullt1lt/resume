@@ -22,13 +22,19 @@ export default function Main_Portfolio() {
   };
   return (
     <>
-      <section className="Main_Portfolio" id="portfolio">
-        <h1 className="Main_Portfolio_Header"><AnimatedText text={t("portfolioHeader")} delay={0.3} /></h1>
-        <ul className="Main_Portfolio_list" onMouseMove={handleMouseMove}>
+      <section
+        className="Main_Portfolio"
+        id="portfolio"
+        onMouseMove={handleMouseMove}
+      >
+        <h1 className="Main_Portfolio_Header">
+          <AnimatedText text={t("portfolioHeader")} delay={0.3} />
+        </h1>
+        <ul className="Main_Portfolio_list">
           <li
             className="Portfolio_item"
             style={{
-              transform: `rotateX(${mousePosition.x}deg) rotateY(${mousePosition.y}deg)`,
+              transform: `translateX(${-mousePosition.x}px) translateY(${-mousePosition.y}px)`,
             }}
           >
             <a
@@ -41,7 +47,7 @@ export default function Main_Portfolio() {
           <li
             className="Portfolio_item"
             style={{
-              transform: `rotateX(${mousePosition.x}deg) rotateY(${mousePosition.y}deg)`,
+              transform: `translateX(${-mousePosition.x}px) translateY(${-mousePosition.y}px)`,
             }}
           >
             <a
