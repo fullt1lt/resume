@@ -20,7 +20,11 @@ import experienceEN from "./locales/en/experience.json";
 import experienceUA from "./locales/ua/experience.json";
 import experienceCZ from "./locales/cz/experience.json";
 
-const savedLanguage = Cookies.get("selectedLanguage") || "ua";
+import contactsUA from "./locales/ua/contacts.json";
+import contactsEN from "./locales/en/contacts.json";
+import contactsCZ from "./locales/cz/contacts.json";
+
+const savedLanguage = Cookies.get("selectedLanguage") || "en";
 
 const resources = {
   en: {
@@ -29,6 +33,7 @@ const resources = {
     skills: skillsEN,
     portfolio: portfolioEN,
     experience: experienceEN,
+    contacts: contactsEN,
   },
   ua: {
     header: headerUA,
@@ -36,6 +41,7 @@ const resources = {
     skills: skillsUA,
     portfolio: portfolioUA,
     experience: experienceUA,
+    contacts: contactsUA,
   },
   cz: {
     header: headerCZ,
@@ -43,13 +49,14 @@ const resources = {
     skills: skillsCZ,
     portfolio: portfolioCZ,
     experience: experienceCZ,
+    contacts: contactsCZ,
   },
 };
 
 i18n.use(initReactI18next).init({
   resources,
   lng: savedLanguage,
-  ns: ["header", "resume_info", "skills", "portfolio", "experience"],
+  ns: ["header", "resume_info", "skills", "portfolio", "experience", "contacts"],
   defaultNS: "header",
   interpolation: {
     escapeValue: false,
