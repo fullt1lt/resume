@@ -11,7 +11,7 @@ export default function Main_Skills() {
     { name: "Python", percentage: 75 },
     { name: "JavaScript", percentage: 60 },
     { name: "HTML & CSS", percentage: 100 },
-    { name: "React", percentage: 25 },
+    { name: "React", percentage: 50 },
   ];
 
   useEffect(() => {

@@ -1,6 +1,7 @@
 import "./Main_Portfolio.scss";
 import SpaSalon from "@assets/imag/Spa_Salon.png";
 import Luxtrips from "@assets/imag/Lux_trips.png";
+import HaigTeam from "@assets/imag/HaigTeam.png";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import AnimatedText from "../Functions/AnimatedText";
@@ -13,6 +14,20 @@ const sizeHalfCounter = (event) => {
 export default function Main_Portfolio() {
   const { t } = useTranslation("portfolio");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const portfolioList = [
+  {
+      link: "https://www.haigteam.com/",
+      image: HaigTeam,
+    },
+    {
+      link: "https://fullt1lt.github.io/spa_salon-final/",
+      image: SpaSalon,
+    },
+    {
+      link: "https://fullt1lt.github.io/lux_trips/",
+      image: Luxtrips,
+    }
+  ];
 
   const handleMouseMove = (event) => {
     const size = sizeHalfCounter(event);
@@ -31,32 +46,19 @@ export default function Main_Portfolio() {
           <AnimatedText text={t("portfolioHeader")} delay={0.3} />
         </h1>
         <ul className="Main_Portfolio_list">
-          <li
-            className="Portfolio_item"
-            style={{
-              transform: `translateX(${-mousePosition.x}px) translateY(${-mousePosition.y}px)`,
-            }}
-          >
-            <a
-              href="https://fullt1lt.github.io/spa_salon-final/"
-              className="Portfolio_links"
+          {portfolioList.map((item, index) => (
+            <li
+              key={index}
+              className="Portfolio_item"
+              style={{
+                transform: `translateX(${-mousePosition.x}px) translateY(${-mousePosition.y}px)`,
+              }}
             >
-              <img src={SpaSalon} alt="Spa Salon" />
-            </a>
-          </li>
-          <li
-            className="Portfolio_item"
-            style={{
-              transform: `translateX(${-mousePosition.x}px) translateY(${-mousePosition.y}px)`,
-            }}
-          >
-            <a
-              href="https://fullt1lt.github.io/lux_trips/"
-              className="Portfolio_links"
-            >
-              <img src={Luxtrips} alt="Lux trips" />
-            </a>
-          </li>
+              <a href={item.link} className="Portfolio_links" target="_blank">
+                <img src={item.image} alt="" />
+              </a>
+            </li>
+          ))}
         </ul>
       </section>
     </>
