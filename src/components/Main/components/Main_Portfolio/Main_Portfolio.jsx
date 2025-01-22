@@ -5,11 +5,8 @@ import HaigTeam from "@assets/imag/HaigTeam.png";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import AnimatedText from "../Functions/AnimatedText";
+import {handleMouseMove} from "../Functions/HandleMouseMove"
 
-const sizeHalfCounter = (event) => {
-  const rect = event.currentTarget.getBoundingClientRect();
-  return { width: rect.width / 2, heigth: rect.height / 2 };
-};
 
 export default function Main_Portfolio() {
   const { t } = useTranslation("portfolio");
@@ -29,18 +26,12 @@ export default function Main_Portfolio() {
     }
   ];
 
-  const handleMouseMove = (event) => {
-    const size = sizeHalfCounter(event);
-    const x = (size.width - event.clientX) / 25;
-    const y = (size.heigth - event.clientY) / 25;
-    setMousePosition({ x, y });
-  };
   return (
     <>
       <section
         className="Main_Portfolio"
         id="portfolio"
-        onMouseMove={handleMouseMove}
+        onMouseMove={(event) => handleMouseMove(event, setMousePosition)}
       >
         <h1 className="Main_Portfolio_Header">
           <AnimatedText text={t("portfolioHeader")} delay={0.3} />
