@@ -1,9 +1,11 @@
 import "./Main_Contacts.scss";
 import AnimatedText from "../Functions/AnimatedText";
 import { useTranslation } from "react-i18next";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { handleMouseMove } from "../Functions/HandleMouseMove";
+import useStickyObserver from "../hooks/useStickyObserver";
 import Send_Emails from "./Send_Emails/Send_Emails";
+
 import telegram from "@assets/icon/telegram_black.png";
 import instagram from "@assets/icon/instagram.png";
 import whatsApp from "@assets/icon/WhatsApp.png";
@@ -12,6 +14,8 @@ import github from "@assets/icon/github.png";
 export default function Main_Contacts() {
   const { t } = useTranslation("contacts");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const contactsRef = useRef(null);
+  const [isSticky, setIsSticky] = useState(false);
   const links = [
     {
       link: "https://t.me/Just_t1lt",
@@ -31,16 +35,26 @@ export default function Main_Contacts() {
     },
   ];
 
+  useStickyObserver(contactsRef, setIsSticky);
+
   return (
     <section
       className="Main_Contacts"
       id="contacts"
+      ref={contactsRef}
       onMouseMove={(event) => handleMouseMove(event, setMousePosition)}
     >
       <ul className="Main_Contacts_list">
         <li className="Main_Contacts_item_header">
-          <h1 className="Main_Contacts_header">
-            <AnimatedText text={t("contactsHeader")} delay={0.3} />
+          <h1
+            className={`Main_Contacts_header ${
+              isSticky ? "animation_header" : ""
+            }`}
+          >
+            <AnimatedText
+              text={isSticky ? t("contactsHeader") : " "}
+              delay={0.1}
+            />
           </h1>
         </li>
         <li

@@ -3,13 +3,16 @@ import SpaSalon from "@assets/imag/Spa_Salon.png";
 import Luxtrips from "@assets/imag/Lux_trips.png";
 import HaigTeam from "@assets/imag/HaigTeam.png";
 import { useTranslation } from "react-i18next";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import AnimatedText from "../Functions/AnimatedText";
-import {handleMouseMove} from "../Functions/HandleMouseMove"
+import { handleMouseMove } from "../Functions/HandleMouseMove"
+import useStickyObserver from "../hooks/useStickyObserver"
 
 
 export default function Main_Portfolio() {
   const { t } = useTranslation("portfolio");
+  const portfolioRef = useRef(null);
+  const [isSticky, setIsSticky] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const portfolioList = [
   {
@@ -26,15 +29,18 @@ export default function Main_Portfolio() {
     }
   ];
 
+  useStickyObserver(portfolioRef, setIsSticky)
+
   return (
     <>
       <section
         className="Main_Portfolio"
         id="portfolio"
+        ref={portfolioRef}
         onMouseMove={(event) => handleMouseMove(event, setMousePosition)}
       >
-        <h1 className="Main_Portfolio_Header">
-          <AnimatedText text={t("portfolioHeader")} delay={0.3} />
+        <h1 className={`Main_Portfolio_Header ${isSticky ? "animation_header" : ""}`}>
+          <AnimatedText text={isSticky ? t("portfolioHeader") : " "} delay={0.1} />
         </h1>
         <ul className="Main_Portfolio_list">
           {portfolioList.map((item, index) => (

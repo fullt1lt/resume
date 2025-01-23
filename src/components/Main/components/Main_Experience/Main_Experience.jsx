@@ -1,7 +1,9 @@
 import "./Main_Experience.scss";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import AnimatedText from "../Functions/AnimatedText";
+import { calculateGridPosition, counterPoints } from "../Functions/Main_Experience_Functions"
+import useStickyObserver from "../hooks/useStickyObserver"
 
 export default function Main_Experience() {
   const experienceRef = useRef(null);
@@ -9,57 +11,7 @@ export default function Main_Experience() {
   const [isSticky, setIsSticky] = useState(false);
   const experienceList = t("experienceList", { returnObjects: true });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isSticky) {
-          setIsSticky(true);
-        }
-      },
-      { threshold: 0.4 }
-    );
-
-    if (experienceRef.current) {
-      observer.observe(experienceRef.current);
-    }
-
-    return () => {
-      if (experienceRef.current) {
-        observer.unobserve(experienceRef.current);
-      }
-    };
-  }, [isSticky]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0) {
-        setIsSticky(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-  }, []);
-
-  const calculateGridPosition = (item) => {
-    const startRow = item.id;
-    const startColm = item.id % 2 === 0 ? 1 : 2;
-    const endRow = startRow + 1;
-    const endColm = item.id % 2 === 0 ? 2 : 3;
-    return {
-      gridArea: `${startRow} / ${startColm} / ${endRow} / ${endColm}`,
-      animationDelay: `${item.id}s`,
-    };
-  };
-
-  const counterPoints = (count) => {
-    return (
-      <ul className="Pointer_list">
-        {Array.from({ length: count + 1 }).map((_, index) => (
-          <li className="Point" key={index}></li>
-        ))}
-      </ul>
-    );
-  };
+  useStickyObserver(experienceRef, setIsSticky);
 
   return (
     <section className="Main_Experience" ref={experienceRef} id="experience">

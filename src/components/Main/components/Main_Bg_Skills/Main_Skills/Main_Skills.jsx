@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import "./Main_Skills.scss";
 import { useTranslation } from "react-i18next";
+import useStickyObserver from "../../hooks/useStickyObserver"
+import AnimatedText from "../../Functions/AnimatedText";
 
 export default function Main_Skills() {
   const skillsRef = useRef(null);
@@ -14,36 +16,7 @@ export default function Main_Skills() {
     { name: "React", percentage: 50 },
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isSticky) {
-          setIsSticky(true);
-        }
-      },
-      { threshold: 0.4 }
-    );
-
-    if (skillsRef.current) {
-      observer.observe(skillsRef.current);
-    }
-
-    return () => {
-      if (skillsRef.current) {
-        observer.unobserve(skillsRef.current);
-      }
-    };
-  }, [isSticky]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0) {
-        setIsSticky(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-  }, []);
+  useStickyObserver(skillsRef, setIsSticky);
 
   return (
     <section
@@ -54,7 +27,7 @@ export default function Main_Skills() {
         <h1
           className={`Main_Skills_Header ${isSticky ? "animation_header" : ""}`}
         >
-          {t("skillsHeader")}
+          <AnimatedText text={isSticky? t("skillsHeader") : " "} delay={0.4}/>
         </h1>
         {skills.map((skill, index) => (
           <li key={index} className="Main_skills_item">

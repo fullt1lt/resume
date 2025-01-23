@@ -28,7 +28,6 @@
       height: 0%;
       background-color: white;
       opacity: 0;
-      transform: translateY(-50px);
       z-index: 1;
     }
     .Pointer_list {
@@ -92,7 +91,7 @@
 }
 
 .animatioUpScroll {
-  animation: upScroll 3.5s ease-out forwards;
+  animation: upScroll 4.5s ease-out forwards;
 }
 
 @keyframes fadeInPortfolioRight {
@@ -118,9 +117,11 @@
 }
 
 @keyframes upScroll {
-  to {
+  0% {
+    height: 0%;
+  }
+  100% {
     height: 100%;
     opacity: 1;
-    transform: translateY(0);
   }
 }
