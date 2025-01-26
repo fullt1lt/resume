@@ -76,6 +76,9 @@
         .Experience_Item_Position_Company {
           margin-top: 10px;
           font-size: 25px;
+          width: 100%;
+          text-wrap: wrap;
+          text-align: center;
         }
       }
     }
@@ -123,5 +126,55 @@
   100% {
     height: 100%;
     opacity: 1;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1366px) {
+  .Main_Experience_list {
+    width: 80% !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .Main_Experience_list {
+    width: 80% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .Main_Experience_list {
+    width: 90% !important;
+  }
+  .Experience_Item {
+    h1 {
+      font-size: 30px !important;
+    }
+    h2 {
+      font-size: 25px !important;
+    }
+    .Experience_Item_Position_Company {
+      font-size: 25px !important;
+    }
+  }
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+  .Main_Experience_list {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 430px) { 
+  .Main_Experience_list {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+  .Vertical_Line_Experience {
+    display: none;
+  }
+  .Pointer_list {
+    display: none !important;
   }
 }

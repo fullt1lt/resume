@@ -54,7 +54,7 @@ export default function Create_Portfolio_List({ mousePosition }) {
         <ul className="Main_Portfolio_list">
           {currentItems.map((item, index) => (
             <li
-              key={`${animationKey}-${index}`} 
+              key={`${animationKey}-${index}`}
               className={`Portfolio_item slide-${direction}`}
               style={{
                 transform: `translateX(${-mousePosition.x}px) translateY(${-mousePosition.y}px)`,
@@ -79,6 +79,14 @@ export default function Create_Portfolio_List({ mousePosition }) {
         className="Slider_Buttons_list"
         style={{ display: pages <= 1 ? "none" : "flex" }}
       >
+        <div
+          onClick={handlePrevPage}
+          disabled={currentPage === 1}
+          className="Nav_Portfolio_Button_mobil"
+          style={{ display: pages <= 1 ? "none" : "flex" }}
+        >
+          <img src={arrow_left} alt="" />
+        </div>
         {pages.map((item, index) => (
           <li
             key={index}
@@ -87,6 +95,14 @@ export default function Create_Portfolio_List({ mousePosition }) {
             }`}
           ></li>
         ))}
+        <div
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+          className="Nav_Portfolio_Button_mobil"
+          style={{ display: pages <= 1 ? "none" : "flex" }}
+        >
+          <img src={arrow_right} alt="" />
+        </div>
       </ul>
     </div>
   );
